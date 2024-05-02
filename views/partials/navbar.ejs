@@ -1,0 +1,17 @@
+<nav>
+  <span class="navbar" style="float: left;">
+    <a href="/">Home</a>
+    <a href="/comments">Posts</a>
+    <%if (currentUser) { %>
+    <a href="/comments/new">Create post</a>
+    <% } %>
+  </span>
+  <span class="navbar" style="float: right;">
+    <%if (!currentUser) { %>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <% } else { %>
+    <a href="/logout">Logout</a>
+    <% } %>
+  </span>
+</nav>

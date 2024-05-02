@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/header") %>
+  <body>
+    <%- include("./partials/navbar") %>
+    <h1>DroneBlog</h1>
+
+    <% for (let comment of comments) { %>
+    <div>
+      <h2><%=comment.title %></h2>
+      <p class="text"><%= comment.text%></p>
+      <br>
+      <a href="/comments/<%=comment.id%>" class="button">View more</a>
+    </div>
+    <%} %>
+  <%- include("./partials/footer") %>
+  </body>
+
+</html>

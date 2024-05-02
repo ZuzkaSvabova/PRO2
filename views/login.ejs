@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/header") %>
+  <body>
+    <%- include("./partials/navbar") %>
+
+    <h1>Login</h1>
+    <form action="/login" method="post">
+      <section>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" />
+      </section>
+      <section>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+      </section>
+      <button>Login</button>
+    </form>
+  <%- include("./partials/footer") %>
+  </body>
+  
+</html>

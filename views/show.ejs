@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/header") %>
+  <body>
+    <%- include("./partials/navbar") %>
+
+    <h1><%=comment.title %></h1>
+    <p>Author: <%= comment.author.username%></p>
+
+    <p class="label"> Labels:
+      <% labels.forEach(function(label) { %>
+        <span><%= label %></span>
+      <% }); %>
+    </p>
+
+    <p><%= comment.text%></p>
+
+    <%if (currentUser && !comment.author._id.equals(currentUser)) { %>
+      <a href="/ratings/<%=comment.id%>/like">Like</a>      
+    <% } %>
+    <% if (rating) { %>
+      <span>Likes: <%= rating.likes %></span>
+    <% } %>
+
+
+    <%if (comment.author._id.equals(currentUser)) { %>
+    <a href="/comments/<%=comment.id%>/edit" class="button">Edit post</a>
+
+    <form action="/comments/<%=comment.id%>?_method=DELETE" method="post">
+      <button class="button">Delete post</button>
+    </form>
+
+    <% } %>
+
+    <a href="/comments" class="button">Back</a>
+      <%- include("./partials/footer") %>
+  </body>
+
+</html>
